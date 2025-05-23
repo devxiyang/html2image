@@ -1,160 +1,270 @@
-<h1 align="center">modern-screenshot</h1>
+<div align="center">
 
-<p align="center">
-  <a href="https://unpkg.com/modern-screenshot">
-    <img src="https://img.shields.io/bundlephobia/minzip/modern-screenshot" alt="Minzip">
-  </a>
-  <a href="https://www.npmjs.com/package/modern-screenshot">
-    <img src="https://img.shields.io/npm/v/modern-screenshot.svg" alt="Version">
-  </a>
-  <a href="https://www.npmjs.com/package/modern-screenshot">
-    <img src="https://img.shields.io/npm/dm/modern-screenshot" alt="Downloads">
-  </a>
-  <a href="https://github.com/qq15725/modern-screenshot/issues">
-    <img src="https://img.shields.io/github/issues/qq15725/modern-screenshot" alt="Issues">
-  </a>
-  <a href="https://github.com/qq15725/modern-screenshot/blob/master/LICENSE">
-    <img src="https://img.shields.io/npm/l/modern-screenshot.svg" alt="License">
-  </a>
-</p>
+# 📸 HTML2Image
 
-<p align="center">Quickly generate image from DOM node using HTML5 canvas and SVG</p>
+**🚀 Lightning-fast HTML to Image conversion using HTML5 Canvas and SVG**
 
-<p align="center">Fork from <a href="https://github.com/bubkoo/html-to-image">html-to-image</a></p>
+[![NPM Version](https://img.shields.io/npm/v/modern-screenshot?style=flat-square&color=blue)](https://www.npmjs.com/package/modern-screenshot)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/modern-screenshot?style=flat-square&color=green)](https://bundlephobia.com/package/modern-screenshot)
+[![Downloads](https://img.shields.io/npm/dm/modern-screenshot?style=flat-square&color=orange)](https://www.npmjs.com/package/modern-screenshot)
+[![License](https://img.shields.io/github/license/devxiyang/html2image?style=flat-square&color=red)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square)](https://www.typescriptlang.org/)
 
-<p align="center">English | <a href="README.zh-CN.md">简体中文</a></p>
+*Transform any DOM element into high-quality images with ease*
 
-## 📦 Install
+[🎯 Features](#-features) • [📦 Installation](#-installation) • [🚀 Quick Start](#-quick-start) • [📖 Documentation](#-api-reference) • [💡 Examples](#-examples)
 
-```sh
-npm i modern-screenshot
+</div>
+
+---
+
+## ✨ Features
+
+- 🎯 **Zero Dependencies** - Lightweight and self-contained
+- 🚀 **High Performance** - Optimized with Web Workers and context reuse
+- 🎨 **Multiple Formats** - PNG, JPEG, WebP, SVG, Canvas, Blob support
+- 📱 **Cross-Platform** - Works in all modern browsers
+- 🔧 **TypeScript Ready** - Full type definitions included
+- 🌐 **Modern API** - Promise-based with async/await support
+- 🎛️ **Highly Configurable** - Extensive options for customization
+- 📏 **Pixel Perfect** - Maintains exact styling and layout
+
+## 📦 Installation
+
+```bash
+# npm
+npm install modern-screenshot
+
+# yarn
+yarn add modern-screenshot
+
+# pnpm
+pnpm add modern-screenshot
 ```
 
-## 🦄 Usage
+## 🚀 Quick Start
 
-```ts
+### Basic Usage
+
+```typescript
 import { domToPng } from 'modern-screenshot'
 
-domToPng(document.querySelector('#app')).then(dataUrl => {
-  const link = document.createElement('a')
-  link.download = 'screenshot.png'
-  link.href = dataUrl
-  link.click()
+// Convert any element to PNG
+const element = document.querySelector('#my-element')
+const dataUrl = await domToPng(element)
+
+// Download the image
+const link = document.createElement('a')
+link.download = 'screenshot.png'
+link.href = dataUrl
+link.click()
+```
+
+### With Options
+
+```typescript
+import { domToPng } from 'modern-screenshot'
+
+const dataUrl = await domToPng(element, {
+  width: 1920,
+  height: 1080,
+  scale: 2,
+  backgroundColor: '#ffffff',
+  style: {
+    transform: 'scale(1.5)',
+    'transform-origin': 'top left'
+  }
 })
 ```
 
-<details>
-<summary>CDN</summary><br>
+## 🌐 CDN Usage
 
 ```html
 <script src="https://unpkg.com/modern-screenshot"></script>
 <script>
-  modernScreenshot.domToPng(document.querySelector('body')).then(dataUrl => {
-    const link = document.createElement('a')
-    link.download = 'screenshot.png'
-    link.href = dataUrl
-    link.click()
+  modernScreenshot.domToPng(document.body).then(dataUrl => {
+    console.log('Screenshot ready:', dataUrl)
   })
 </script>
 ```
 
-<br></details>
+## 📖 API Reference
 
-<details>
-<summary>Browser Console</summary><br>
+### Core Methods
 
-> ⚠️ Partial embedding will fail due to CORS
+| Method | Output Type | Description |
+|--------|-------------|-------------|
+| `domToPng(node, options?)` | Data URL | Convert to PNG format |
+| `domToJpeg(node, options?)` | Data URL | Convert to JPEG format |
+| `domToWebp(node, options?)` | Data URL | Convert to WebP format |
+| `domToSvg(node, options?)` | Data URL | Convert to SVG format |
+| `domToCanvas(node, options?)` | HTMLCanvasElement | Convert to Canvas element |
+| `domToBlob(node, options?)` | Blob | Convert to Blob object |
+| `domToPixel(node, options?)` | ImageData | Convert to pixel data |
 
-```js
-const script = document.createElement('script')
-script.src = "https://unpkg.com/modern-screenshot"
-document.getElementsByTagName('head')[0].appendChild(script)
+### Advanced Methods
 
-script.onload = () => {
-  modernScreenshot
-    .domToImage(document.querySelector('body'), {
-      debug: true,
-      progress: (current, total) => {
-        console.log(`${ current }/${ total }`)
-      }
-    })
-    .then(img => {
-      const width = 600
-      const height = img.height * (width / img.width)
-      console.log('%c ', [
-        `padding: 0 ${ width / 2 }px;`,
-        `line-height: ${ height }px;`,
-        `background-image: url('${ img.src }');`,
-        `background-size: 100% 100%;`,
-      ].join(''))
-    })
+| Method | Description |
+|--------|-------------|
+| `createContext(node, options?)` | Create reusable context for batch operations |
+| `destroyContext(context)` | Clean up context resources |
+| `domToForeignObjectSvg(node, options?)` | Convert using SVG foreignObject |
+| `domToImage(node, options?)` | Convert to HTMLImageElement |
+
+### Options Interface
+
+```typescript
+interface Options {
+  // Dimensions
+  width?: number
+  height?: number
+  scale?: number
+  
+  // Quality & Format
+  quality?: number
+  backgroundColor?: string
+  
+  // Filtering
+  filter?: (node: Element) => boolean
+  
+  // Styling
+  style?: Record<string, string>
+  
+  // Advanced
+  cacheBust?: boolean
+  imagePlaceholder?: string
+  skipAutoScale?: boolean
+  debug?: boolean
+  
+  // Callbacks
+  progress?: (current: number, total: number) => void
+  
+  // Web Worker
+  workerUrl?: string
+  workerNumber?: number
 }
 ```
 
-<br></details>
+## 💡 Examples
 
-## Methods
+### 📊 Convert Chart to Image
 
-> `method(node: Node, options?: Options)`
+```typescript
+import { domToPng } from 'modern-screenshot'
 
-DOM to dataURL
+// Capture a chart with high DPI
+const chart = document.querySelector('#my-chart')
+const imageUrl = await domToPng(chart, {
+  scale: 2, // 2x resolution for crisp images
+  backgroundColor: 'white'
+})
+```
 
-- [domToPng](src/converts/dom-to-png.ts)
-- [domToSvg](src/converts/dom-to-svg.ts)
-- [domToJpeg](src/converts/dom-to-jpeg.ts)
-- [domToWebp](src/converts/dom-to-webp.ts)
-- [domToDataUrl](src/converts/dom-to-data-url.ts)
+### 🎨 Custom Styling
 
-DOM to data
+```typescript
+import { domToJpeg } from 'modern-screenshot'
 
-- [domToBlob](src/converts/dom-to-blob.ts)
-- [domToPixel](src/converts/dom-to-pixel.ts)
+const element = document.querySelector('#content')
+const imageUrl = await domToJpeg(element, {
+  quality: 0.95,
+  style: {
+    transform: 'scale(0.8)',
+    border: '2px solid #333',
+    'border-radius': '8px'
+  }
+})
+```
 
-DOM to HTMLElement
+### ⚡ High-Performance Batch Processing
 
-- [domToForeignObjectSvg](src/converts/dom-to-foreign-object-svg.ts)
-- [domToImage](src/converts/dom-to-image.ts)
-- [domToCanvas](src/converts/dom-to-canvas.ts)
-
-## Options
-
-See the [options.ts](src/options.ts)
-
-## Singleton context and web worker
-
-Quick screenshots per second by reusing context and web worker
-
-```ts
-// use vite
-import workerUrl from 'modern-screenshot/worker?url'
+```typescript
 import { createContext, destroyContext, domToPng } from 'modern-screenshot'
 
-async function screenshotsPerSecond() {
-  const context = await createContext(document.querySelector('#app'), {
-    workerUrl,
-    workerNumber: 1,
-  })
-  for (let i = 0; i < 10; i++) {
-    domToPng(context).then(dataUrl => {
-      const link = document.createElement('a')
-      link.download = `screenshot-${ i + 1 }.png`
-      link.href = dataUrl
-      link.click()
-      if (i + 1 === 10) {
-        destroyContext(context)
-      }
-    })
-    await new Promise(resolve => setTimeout(resolve, 1000))
-  }
-}
+// Create context once for multiple screenshots
+const context = await createContext(document.querySelector('#app'), {
+  workerUrl: '/modern-screenshot-worker.js',
+  workerNumber: 2
+})
 
-screenshotsPerSecond()
+// Take multiple screenshots efficiently
+const screenshots = await Promise.all([
+  domToPng(context),
+  domToPng(context),
+  domToPng(context)
+])
+
+// Clean up
+destroyContext(context)
 ```
 
-See the [context.ts](src/context.ts)
+### 🎯 Progress Tracking
 
-## TODO
+```typescript
+import { domToPng } from 'modern-screenshot'
 
-- [ ] unable to clone [css counters](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters)
+const imageUrl = await domToPng(element, {
+  progress: (current, total) => {
+    console.log(`Processing: ${current}/${total} (${Math.round(current/total*100)}%)`)
+  }
+})
+```
 
-  `content: counter(step);`
+## 🔧 Advanced Configuration
+
+### Custom Image Placeholder
+
+```typescript
+const options = {
+  imagePlaceholder: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PC9zdmc+'
+}
+```
+
+### Element Filtering
+
+```typescript
+const options = {
+  filter: (node) => {
+    // Skip elements with 'no-screenshot' class
+    return !node.classList?.contains('no-screenshot')
+  }
+}
+```
+
+## 🌟 Use Cases
+
+- 📊 **Data Visualization** - Export charts and graphs
+- 🎨 **Design Tools** - Screenshot design components
+- 📱 **Social Media** - Generate preview images
+- 📋 **Reports** - Convert HTML reports to images
+- 🎮 **Gaming** - Capture game states
+- 📚 **Documentation** - Generate visual documentation
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built on top of [modern-screenshot](https://github.com/qq15725/modern-screenshot)
+- Inspired by [html-to-image](https://github.com/bubkoo/html-to-image)
+
+---
+
+<div align="center">
+
+**Made with ❤️ by the HTML2Image team**
+
+[⭐ Star us on GitHub](https://github.com/devxiyang/html2image) • [🐛 Report Issues](https://github.com/devxiyang/html2image/issues) • [💬 Discussions](https://github.com/devxiyang/html2image/discussions)
+
+</div>
