@@ -4,6 +4,7 @@
 
 **🚀 Lightning-fast HTML to Image conversion using HTML5 Canvas and SVG**
 
+[![Website](https://img.shields.io/badge/Website-html2image.pro-blue?style=flat-square)](https://html2image.pro)
 [![NPM Version](https://img.shields.io/npm/v/modern-screenshot?style=flat-square&color=blue)](https://www.npmjs.com/package/modern-screenshot)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/modern-screenshot?style=flat-square&color=green)](https://bundlephobia.com/package/modern-screenshot)
 [![Downloads](https://img.shields.io/npm/dm/modern-screenshot?style=flat-square&color=orange)](https://www.npmjs.com/package/modern-screenshot)
@@ -12,11 +13,20 @@
 
 *Transform any DOM element into high-quality images with ease*
 
-[🎯 Features](#-features) • [📦 Installation](#-installation) • [🚀 Quick Start](#-quick-start) • [📖 Documentation](#-api-reference) • [💡 Examples](#-examples)
+[🌐 Website](https://html2image.pro) • [🎯 Features](#-features) • [📦 Installation](#-installation) • [🚀 Quick Start](#-quick-start) • [📖 Documentation](#-api-reference) • [💡 Examples](#-examples)
 
 </div>
 
 ---
+
+## 🌐 Official Website
+
+Visit our official website at [html2image.pro](https://html2image.pro) for:
+- 🎨 Live Demo & Playground
+- 📚 Comprehensive Documentation
+- 💡 Advanced Usage Examples
+- 🛠️ API Explorer
+- 🔧 Configuration Generator
 
 ## ✨ Features
 
@@ -31,6 +41,8 @@
 
 ## 📦 Installation
 
+### Package Manager
+
 ```bash
 # npm
 npm install modern-screenshot
@@ -41,6 +53,25 @@ yarn add modern-screenshot
 # pnpm
 pnpm add modern-screenshot
 ```
+
+### CDN
+
+```html
+<!-- Latest version -->
+<script src="https://unpkg.com/modern-screenshot"></script>
+
+<!-- Specific version -->
+<script src="https://unpkg.com/modern-screenshot@4.6.0"></script>
+
+<!-- ES Module -->
+<script type="module">
+  import { domToPng } from 'https://unpkg.com/modern-screenshot?module'
+</script>
+```
+
+### Try Online
+
+Visit our [Playground](https://html2image.pro/playground) to try HTML2Image directly in your browser without installation.
 
 ## 🚀 Quick Start
 
@@ -265,6 +296,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by the HTML2Image team**
 
-[⭐ Star us on GitHub](https://github.com/devxiyang/html2image) • [🐛 Report Issues](https://github.com/devxiyang/html2image/issues) • [💬 Discussions](https://github.com/devxiyang/html2image/discussions)
+[🌐 Official Website](https://html2image.pro) • [⭐ Star us on GitHub](https://github.com/devxiyang/html2image) • [🐛 Report Issues](https://github.com/devxiyang/html2image/issues) • [💬 Discussions](https://github.com/devxiyang/html2image/discussions)
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>© 2024 HTML2Image. All rights reserved.</sub>  
+<sub>Visit [html2image.pro](https://html2image.pro) for more information.</sub>
 
 </div>
