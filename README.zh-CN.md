@@ -18,19 +18,19 @@
   </a>
 </p>
 
-<p align="center">Quickly generate image from DOM node using HTML5 canvas and SVG</p>
+<p align="center">使用 HTML5 canvas 和 SVG 从 DOM 节点快速生成图像</p>
 
 <p align="center">Fork from <a href="https://github.com/bubkoo/html-to-image">html-to-image</a></p>
 
-<p align="center">English | <a href="README.zh-CN.md">简体中文</a></p>
+<p align="center"><a href="README.md">English</a> | 简体中文</p>
 
-## 📦 Install
+## 📦 安装
 
 ```sh
 npm i modern-screenshot
 ```
 
-## 🦄 Usage
+## 🦄 使用
 
 ```ts
 import { domToPng } from 'modern-screenshot'
@@ -61,43 +61,43 @@ domToPng(document.querySelector('#app')).then(dataUrl => {
 <br></details>
 
 <details>
-<summary>Browser Console</summary><br>
+<summary>浏览器控制台</summary><br>
 
-> ⚠️ Partial embedding will fail due to CORS
+> ⚠️ 由于 CORS 部分嵌入将失败
 
-```js
-const script = document.createElement('script')
-script.src = "https://unpkg.com/modern-screenshot"
-document.getElementsByTagName('head')[0].appendChild(script)
+  ```js
+  const script = document.createElement('script')
+  script.src = "https://unpkg.com/modern-screenshot"
+  document.getElementsByTagName('head')[0].appendChild(script)
 
-script.onload = () => {
-  modernScreenshot
-    .domToImage(document.querySelector('body'), {
-      debug: true,
-      progress: (current, total) => {
-        console.log(`${ current }/${ total }`)
-      }
-    })
-    .then(img => {
-      const width = 600
-      const height = img.height * (width / img.width)
-      console.log('%c ', [
-        `padding: 0 ${ width / 2 }px;`,
-        `line-height: ${ height }px;`,
-        `background-image: url('${ img.src }');`,
-        `background-size: 100% 100%;`,
-      ].join(''))
-    })
-}
-```
+  script.onload = () => {
+    modernScreenshot
+      .domToImage(document.querySelector('body'), {
+        debug: true,
+        progress: (current, total) => {
+          console.log(`${ current }/${ total }`)
+        }
+      })
+      .then(img => {
+        const width = 600
+        const height = img.height * (width / img.width)
+        console.log('%c ', [
+          `padding: 0 ${ width / 2 }px;`,
+          `line-height: ${ height }px;`,
+          `background-image: url('${ img.src }');`,
+          `background-size: 100% 100%;`,
+        ].join(''))
+      })
+  }
+  ```
 
 <br></details>
 
-## Methods
+## 方法
 
 > `method(node: Node, options?: Options)`
 
-DOM to dataURL
+DOM 转 dataURL
 
 - [domToPng](src/converts/dom-to-png.ts)
 - [domToSvg](src/converts/dom-to-svg.ts)
@@ -105,24 +105,24 @@ DOM to dataURL
 - [domToWebp](src/converts/dom-to-webp.ts)
 - [domToDataUrl](src/converts/dom-to-data-url.ts)
 
-DOM to data
+DOM 转 data
 
 - [domToBlob](src/converts/dom-to-blob.ts)
 - [domToPixel](src/converts/dom-to-pixel.ts)
 
-DOM to HTMLElement
+DOM 转 HTMLElement
 
 - [domToForeignObjectSvg](src/converts/dom-to-foreign-object-svg.ts)
 - [domToImage](src/converts/dom-to-image.ts)
 - [domToCanvas](src/converts/dom-to-canvas.ts)
 
-## Options
+## 选项
 
-See the [options.ts](src/options.ts)
+请查看 [options.ts](src/options.ts)
 
-## Singleton context and web worker
+## 单例上下文和 web worker
 
-Quick screenshots per second by reusing context and web worker
+通过重用上下文和 web worker，每秒快速截图
 
 ```ts
 // use vite
@@ -151,10 +151,10 @@ async function screenshotsPerSecond() {
 screenshotsPerSecond()
 ```
 
-See the [context.ts](src/context.ts)
+请查看 [context.ts](src/context.ts)
 
-## TODO
+## 待办事项
 
-- [ ] unable to clone [css counters](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters)
+- [ ] 无法克隆 [css 计数器](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters)
 
   `content: counter(step);`
