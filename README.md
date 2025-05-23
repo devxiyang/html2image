@@ -5,9 +5,9 @@
 **🚀 Lightning-fast HTML to Image conversion using HTML5 Canvas and SVG**
 
 [![Website](https://img.shields.io/badge/Website-html2image.pro-blue?style=flat-square)](https://html2image.pro)
-[![NPM Version](https://img.shields.io/npm/v/modern-screenshot?style=flat-square&color=blue)](https://www.npmjs.com/package/modern-screenshot)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/modern-screenshot?style=flat-square&color=green)](https://bundlephobia.com/package/modern-screenshot)
-[![Downloads](https://img.shields.io/npm/dm/modern-screenshot?style=flat-square&color=orange)](https://www.npmjs.com/package/modern-screenshot)
+[![NPM Version](https://img.shields.io/npm/v/@devxiyang/html2image?style=flat-square&color=blue)](https://www.npmjs.com/package/@devxiyang/html2image)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@devxiyang/html2image?style=flat-square&color=green)](https://bundlephobia.com/package/@devxiyang/html2image)
+[![Downloads](https://img.shields.io/npm/dm/@devxiyang/html2image?style=flat-square&color=orange)](https://www.npmjs.com/package/@devxiyang/html2image)
 [![License](https://img.shields.io/github/license/devxiyang/html2image?style=flat-square&color=red)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square)](https://www.typescriptlang.org/)
 
@@ -45,28 +45,13 @@ Visit our official website at [html2image.pro](https://html2image.pro) for:
 
 ```bash
 # npm
-npm install modern-screenshot
+npm install @devxiyang/html2image
 
 # yarn
-yarn add modern-screenshot
+yarn add @devxiyang/html2image
 
 # pnpm
-pnpm add modern-screenshot
-```
-
-### CDN
-
-```html
-<!-- Latest version -->
-<script src="https://unpkg.com/modern-screenshot"></script>
-
-<!-- Specific version -->
-<script src="https://unpkg.com/modern-screenshot@4.6.0"></script>
-
-<!-- ES Module -->
-<script type="module">
-  import { domToPng } from 'https://unpkg.com/modern-screenshot?module'
-</script>
+pnpm add @devxiyang/html2image
 ```
 
 ### Try Online
@@ -78,7 +63,7 @@ Visit our [Playground](https://html2image.pro/playground) to try HTML2Image dire
 ### Basic Usage
 
 ```typescript
-import { domToPng } from 'modern-screenshot'
+import { domToPng } from '@devxiyang/html2image'
 
 // Convert any element to PNG
 const element = document.querySelector('#my-element')
@@ -94,7 +79,7 @@ link.click()
 ### With Options
 
 ```typescript
-import { domToPng } from 'modern-screenshot'
+import { domToPng } from '@devxiyang/html2image'
 
 const dataUrl = await domToPng(element, {
   width: 1920,
@@ -106,17 +91,6 @@ const dataUrl = await domToPng(element, {
     'transform-origin': 'top left'
   }
 })
-```
-
-## 🌐 CDN Usage
-
-```html
-<script src="https://unpkg.com/modern-screenshot"></script>
-<script>
-  modernScreenshot.domToPng(document.body).then(dataUrl => {
-    console.log('Screenshot ready:', dataUrl)
-  })
-</script>
 ```
 
 ## 📖 API Reference
@@ -181,7 +155,7 @@ interface Options {
 ### 📊 Convert Chart to Image
 
 ```typescript
-import { domToPng } from 'modern-screenshot'
+import { domToPng } from '@devxiyang/html2image'
 
 // Capture a chart with high DPI
 const chart = document.querySelector('#my-chart')
@@ -194,7 +168,7 @@ const imageUrl = await domToPng(chart, {
 ### 🎨 Custom Styling
 
 ```typescript
-import { domToJpeg } from 'modern-screenshot'
+import { domToJpeg } from '@devxiyang/html2image'
 
 const element = document.querySelector('#content')
 const imageUrl = await domToJpeg(element, {
@@ -210,11 +184,11 @@ const imageUrl = await domToJpeg(element, {
 ### ⚡ High-Performance Batch Processing
 
 ```typescript
-import { createContext, destroyContext, domToPng } from 'modern-screenshot'
+import { createContext, destroyContext, domToPng } from '@devxiyang/html2image'
 
 // Create context once for multiple screenshots
 const context = await createContext(document.querySelector('#app'), {
-  workerUrl: '/modern-screenshot-worker.js',
+  workerUrl: '/html2image-worker.js',
   workerNumber: 2
 })
 
@@ -232,7 +206,7 @@ destroyContext(context)
 ### 🎯 Progress Tracking
 
 ```typescript
-import { domToPng } from 'modern-screenshot'
+import { domToPng } from '@devxiyang/html2image'
 
 const imageUrl = await domToPng(element, {
   progress: (current, total) => {
