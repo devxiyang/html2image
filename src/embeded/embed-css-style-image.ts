@@ -10,6 +10,12 @@ const properties = [
   'list-style-image',
 ]
 
+function isInlineSvg(value: string): boolean {
+  const trimmed = value.trim()
+  return trimmed.startsWith('url("data:image/svg+xml')
+    || trimmed.startsWith('url(\'data:image/svg+xml')
+}
+
 export function embedCssStyleImage(
   style: CSSStyleDeclaration,
   context: Context,
@@ -18,6 +24,10 @@ export function embedCssStyleImage(
     .map((property) => {
       const value = style.getPropertyValue(property)
       if (!value || value === 'none') {
+        return null
+      }
+      // Skip processing if it's an inline SVG for background-image
+      if (property === 'background-image' && isInlineSvg(value)) {
         return null
       }
       if (IN_SAFARI || IN_FIREFOX) {
