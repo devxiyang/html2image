@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "packageManager": "pnpm@9.15.1",
   "description": "Quickly generate image from DOM node using HTML5 canvas and SVG",
-  "author": "wxm",
+  "author": "https://x.com/devxiyang",
   "license": "MIT",
   "homepage": "https://github.com/devxiyang/html2image",
   "repository": {
