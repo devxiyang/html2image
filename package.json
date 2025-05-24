@@ -1,7 +1,7 @@
 {
   "name": "@devxiyang/html2image",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1.beta",
   "packageManager": "pnpm@9.15.1",
   "description": "Quickly generate image from DOM node using HTML5 canvas and SVG",
   "author": "https://x.com/devxiyang",
