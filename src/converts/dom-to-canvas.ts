@@ -1,9 +1,9 @@
 import type { Context } from '../context'
-import type { Options } from '../options'
-import { createStyleElement, orCreateContext } from '../create-context'
-import { imageToCanvas } from '../image-to-canvas'
+import type { Options } from '../utils/options'
+import { createStyleElement, orCreateContext } from '../utils/create-context'
+import { imageToCanvas } from '../utils/image-to-canvas'
 
-import { createImage, svgToDataUrl, XMLNS } from '../utils'
+import { createImage, svgToDataUrl, XMLNS } from '../utils/utils'
 import { domToForeignObjectSvg } from './dom-to-foreign-object-svg'
 
 export async function domToCanvas<T extends Node>(node: T, options?: Options): Promise<HTMLCanvasElement>

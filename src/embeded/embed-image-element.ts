@@ -1,6 +1,6 @@
-import type { Context } from './context'
-import { contextFetch } from './fetch'
-import { IN_FIREFOX, IN_SAFARI, isDataUrl, isImageElement, isSVGElementNode } from './utils'
+import type { Context } from '../context'
+import { contextFetch } from '../utils/fetch'
+import { IN_FIREFOX, IN_SAFARI, isDataUrl, isImageElement, isSVGElementNode } from '../utils/utils'
 
 export function embedImageElement<T extends HTMLImageElement | SVGImageElement>(
   cloned: T,

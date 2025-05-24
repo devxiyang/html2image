@@ -1,7 +1,7 @@
 import type { Context } from '../context'
-import type { Options } from '../options'
-import { orCreateContext } from '../create-context'
-import { createImage } from '../utils'
+import type { Options } from '../utils/options'
+import { orCreateContext } from '../utils/create-context'
+import { createImage } from '../utils/utils'
 import { domToDataUrl } from './dom-to-data-url'
 import { domToSvg } from './dom-to-svg'
 

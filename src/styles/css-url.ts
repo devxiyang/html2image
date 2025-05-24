@@ -1,6 +1,6 @@
-import type { Context } from './context'
-import { contextFetch } from './fetch'
-import { isDataUrl, resolveUrl } from './utils'
+import type { Context } from '../context'
+import { contextFetch } from '../utils/fetch'
+import { isDataUrl, resolveUrl } from '../utils/utils'
 
 export async function replaceCssUrlToDataUrl(
   cssText: string,

@@ -1,6 +1,6 @@
-import type { Context } from './context'
+import type { Context } from '../context'
+import { createImage, loadMedia } from '../utils/utils'
 import { cloneCanvas } from './clone-canvas'
-import { createImage, loadMedia } from './utils'
 
 export async function cloneVideo<T extends HTMLVideoElement>(
   video: T,

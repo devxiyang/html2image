@@ -1,4 +1,4 @@
-import type { Context } from './context'
+import type { Context } from '../context'
 import { uuid } from './utils'
 
 export function getSandBox(context: Context): HTMLIFrameElement | undefined {

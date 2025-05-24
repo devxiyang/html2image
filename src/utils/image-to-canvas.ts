@@ -1,4 +1,4 @@
-import type { Context } from './context'
+import type { Context } from '../context'
 import { loadMedia } from './utils'
 
 export async function imageToCanvas<T extends HTMLImageElement>(

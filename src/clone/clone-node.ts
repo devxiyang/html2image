@@ -1,8 +1,7 @@
-import type { Context } from './context'
-import { cloneElement } from './clone-element'
-import { copyCssStyles } from './copy-css-styles'
-import { copyInputValue } from './copy-input-value'
-import { copyPseudoClass } from './copy-pseudo-class'
+import type { Context } from '../context'
+import { copyCssStyles } from '../styles/copy-css-styles'
+import { copyPseudoClass } from '../styles/copy-pseudo-class'
+import { copyInputValue } from '../utils/copy-input-value'
 import {
   isCommentNode,
   isElementNode,
@@ -14,7 +13,8 @@ import {
   isTextNode,
   isVideoElement,
   splitFontFamily,
-} from './utils'
+} from '../utils/utils'
+import { cloneElement } from './clone-element'
 
 const excludeParentNodes = new Set([
   'symbol', // test/fixtures/svg.symbol.html

@@ -1,7 +1,7 @@
-import type { Context } from './context'
-import { hasCssUrl, replaceCssUrlToDataUrl, URL_RE } from './css-url'
-import { contextFetch } from './fetch'
-import { isCssFontFaceRule, isCSSImportRule, resolveUrl, splitFontFamily } from './utils'
+import type { Context } from '../context'
+import { hasCssUrl, replaceCssUrlToDataUrl, URL_RE } from '../styles/css-url'
+import { contextFetch } from '../utils/fetch'
+import { isCssFontFaceRule, isCSSImportRule, resolveUrl, splitFontFamily } from '../utils/utils'
 
 export async function embedWebFont<T extends Element>(
   clone: T,

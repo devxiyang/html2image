@@ -1,5 +1,5 @@
-import type { Context } from './context'
-import { contextFetch } from './fetch'
+import type { Context } from '../context'
+import { contextFetch } from '../utils/fetch'
 
 export function embedSvgUse<T extends SVGUseElement>(
   cloned: T,

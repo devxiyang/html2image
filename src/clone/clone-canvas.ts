@@ -1,5 +1,5 @@
-import type { Context } from './context'
-import { createImage } from './utils'
+import type { Context } from '../context'
+import { createImage } from '../utils/utils'
 
 export function cloneCanvas<T extends HTMLCanvasElement>(
   canvas: T,

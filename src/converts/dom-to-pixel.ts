@@ -1,6 +1,6 @@
 import type { Context } from '../context'
-import type { Options } from '../options'
-import { orCreateContext } from '../create-context'
+import type { Options } from '../utils/options'
+import { orCreateContext } from '../utils/create-context'
 import { domToCanvas } from './dom-to-canvas'
 
 export async function domToPixel<T extends Node>(node: T, options?: Options): Promise<Uint8ClampedArray>

@@ -1,4 +1,4 @@
-import type { Options } from './options'
+import type { Options } from './utils/options'
 
 export interface Request {
   type: 'image' | 'text'

@@ -1,4 +1,4 @@
-import type { Context } from './context'
+import type { Context } from '../context'
 
 // Constants
 export const PREFIX = '[modern-screenshot]'

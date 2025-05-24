@@ -1,7 +1,7 @@
-import type { Context } from './context'
+import type { Context } from '../context'
+import { uuid } from '../utils/utils'
 import { getDefaultStyle } from './get-default-style'
 import { getDiffStyle } from './get-diff-style'
-import { uuid } from './utils'
 
 const pseudoClasses = [
   ':before',

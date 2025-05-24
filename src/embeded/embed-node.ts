@@ -1,14 +1,14 @@
-import type { Context } from './context'
-import { embedCssStyleImage } from './embed-css-style-image'
-import { embedImageElement } from './embed-image-element'
-import { embedSvgUse } from './embed-svg-use'
+import type { Context } from '../context'
 import {
   isElementNode,
   isHTMLElementNode,
   isImageElement,
   isSVGImageElementNode,
   isSVGUseElementNode,
-} from './utils'
+} from '../utils/utils'
+import { embedCssStyleImage } from './embed-css-style-image'
+import { embedImageElement } from './embed-image-element'
+import { embedSvgUse } from './embed-svg-use'
 
 export function embedNode<T extends Node>(cloned: T, context: Context): void {
   const { tasks } = context

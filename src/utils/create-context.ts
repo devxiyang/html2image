@@ -1,4 +1,4 @@
-import type { Context, Request } from './context'
+import type { Context, Request } from '../context'
 import type { Options } from './options'
 import { createLogger } from './create-logger'
 import { getDefaultRequestInit } from './get-default-request-init'

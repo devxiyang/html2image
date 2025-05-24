@@ -1,4 +1,4 @@
-import type { Context } from './context'
+import type { Context } from '../context'
 import { cloneNode } from './clone-node'
 
 export function cloneIframe<T extends HTMLIFrameElement>(

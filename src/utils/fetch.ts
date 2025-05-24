@@ -1,4 +1,4 @@
-import type { Context } from './context'
+import type { Context } from '../context'
 import { blobToDataUrl, IN_FIREFOX, IN_SAFARI } from './utils'
 
 export type BaseFetchOptions = RequestInit & {

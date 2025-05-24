@@ -1,4 +1,4 @@
-import type { Context } from './context'
+import type { Context } from '../context'
 
 export function destroyContext(context: Context): void {
   context.ownerDocument = undefined

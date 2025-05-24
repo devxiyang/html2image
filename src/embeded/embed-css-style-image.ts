@@ -1,6 +1,6 @@
-import type { Context } from './context'
-import { replaceCssUrlToDataUrl } from './css-url'
-import { IN_FIREFOX, IN_SAFARI } from './utils'
+import type { Context } from '../context'
+import { replaceCssUrlToDataUrl } from '../styles/css-url'
+import { IN_FIREFOX, IN_SAFARI } from '../utils/utils'
 
 const properties = [
   'background-image',

@@ -1,15 +1,15 @@
 import type { Context } from '../context'
-import type { Options } from '../options'
-import { cloneNode } from '../clone-node'
-import { orCreateContext } from '../create-context'
-import { destroyContext } from '../destroy-context'
-import { embedNode } from '../embed-node'
-import { embedWebFont } from '../embed-web-font'
+import type { Options } from '../utils/options'
+import { cloneNode } from '../clone/clone-node'
+import { embedNode } from '../embeded/embed-node'
+import { embedWebFont } from '../embeded/embed-web-font'
+import { orCreateContext } from '../utils/create-context'
+import { destroyContext } from '../utils/destroy-context'
 import {
   createSvg,
   isElementNode,
   isSVGElementNode,
-} from '../utils'
+} from '../utils/utils'
 
 export async function domToForeignObjectSvg<T extends Node>(node: T, options?: Options): Promise<SVGElement>
 export async function domToForeignObjectSvg<T extends Node>(context: Context<T>): Promise<SVGElement>
@@ -38,7 +38,7 @@ export async function domToForeignObjectSvg(node: any, options?: any): Promise<S
   const clone = await cloneNode(context.node, context, true)
   if (svgStyleElement && ownerDocument) {
     let allCssText = ''
-    svgStyles.forEach((klasses, cssText) => {
+    svgStyles.forEach((klasses: string[], cssText: string) => {
       allCssText += `${klasses.join(',\n')} {\n  ${cssText}\n}\n`
     })
     svgStyleElement.appendChild(ownerDocument.createTextNode(allCssText))

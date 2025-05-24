@@ -1,6 +1,6 @@
-import type { Context } from './context'
-import { getSandBox } from './sandbox'
-import { isSVGElementNode, XMLNS } from './utils'
+import type { Context } from '../context'
+import { getSandBox } from '../utils/sandbox'
+import { isSVGElementNode, XMLNS } from '../utils/utils'
 
 const ignoredStyles = [
   'width',

@@ -1,9 +1,9 @@
 import type { Context } from '../context'
-import type { Options } from '../options'
-import { changeJpegDpi } from '../change-jpeg-dpi'
-import { changePngDpi } from '../change-png-dpi'
-import { orCreateContext } from '../create-context'
-import { blobToArrayBuffer, canvasToBlob } from '../utils'
+import type { Options } from '../utils/options'
+import { changeJpegDpi } from '../utils/change-jpeg-dpi'
+import { changePngDpi } from '../utils/change-png-dpi'
+import { orCreateContext } from '../utils/create-context'
+import { blobToArrayBuffer, canvasToBlob } from '../utils/utils'
 import { domToCanvas } from './dom-to-canvas'
 
 export async function domToBlob<T extends Node>(node: T, options?: Options): Promise<Blob>

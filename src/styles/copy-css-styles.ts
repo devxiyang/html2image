@@ -1,7 +1,7 @@
-import type { Context } from './context'
+import type { Context } from '../context'
+import { IN_CHROME } from '../utils/utils'
 import { getDefaultStyle } from './get-default-style'
 import { getDiffStyle } from './get-diff-style'
-import { IN_CHROME } from './utils'
 
 export function copyCssStyles<T extends HTMLElement | SVGElement>(
   node: T,
