@@ -1,6 +1,6 @@
-import type { BaseFetchOptions } from './fetch'
-import { baseFetch } from './fetch'
-import { consoleWarn } from './utils'
+import type { BaseFetchOptions } from './utils/fetch'
+import { baseFetch } from './utils/fetch'
+import { consoleWarn } from './utils/utils'
 
 // eslint-disable-next-line
 const worker = self as unknown as Worker
