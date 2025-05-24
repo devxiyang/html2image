@@ -36,7 +36,7 @@ function parseHTML(str: string) {
       .replace(/__CORS_BASE_URL__/g, corsAssetsBaseURL),
     // eslint-disable-next-line
     scriptCode: str.match(/<script.*?>(.*)<\/script>/s)?.[1]?.replace('export default ', 'return ')
-      ?? 'return window.modernScreenshot.domToPng(document.querySelector(\'body > *\'))',
+      ?? 'return window.html2image.domToPng(document.querySelector(\'body > *\'))',
     skipExpect: !!str.match(/<skip-expect.*\/>/s)?.[0],
     debug: !!str.match(/<debug.*\/>/s)?.[0],
   }

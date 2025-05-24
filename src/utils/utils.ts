@@ -1,7 +1,7 @@
 import type { Context } from '../context'
 
 // Constants
-export const PREFIX = '[modern-screenshot]'
+export const PREFIX = '[html2image]'
 export const IN_BROWSER = typeof window !== 'undefined'
 export const SUPPORT_WEB_WORKER = IN_BROWSER && 'Worker' in window
 export const SUPPORT_ATOB = IN_BROWSER && 'atob' in window
