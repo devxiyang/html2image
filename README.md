@@ -87,7 +87,7 @@ const dataUrl = await domToPng(element, {
   scale: 2,
   backgroundColor: '#ffffff',
   style: {
-    transform: 'scale(1.5)',
+    'transform': 'scale(1.5)',
     'transform-origin': 'top left'
   }
 })
@@ -124,26 +124,26 @@ interface Options {
   width?: number
   height?: number
   scale?: number
-  
+
   // Quality & Format
   quality?: number
   backgroundColor?: string
-  
+
   // Filtering
   filter?: (node: Element) => boolean
-  
+
   // Styling
   style?: Record<string, string>
-  
+
   // Advanced
   cacheBust?: boolean
   imagePlaceholder?: string
   skipAutoScale?: boolean
   debug?: boolean
-  
+
   // Callbacks
   progress?: (current: number, total: number) => void
-  
+
   // Web Worker
   workerUrl?: string
   workerNumber?: number
@@ -174,8 +174,8 @@ const element = document.querySelector('#content')
 const imageUrl = await domToJpeg(element, {
   quality: 0.95,
   style: {
-    transform: 'scale(0.8)',
-    border: '2px solid #333',
+    'transform': 'scale(0.8)',
+    'border': '2px solid #333',
     'border-radius': '8px'
   }
 })
@@ -210,7 +210,7 @@ import { domToPng } from '@devxiyang/html2image'
 
 const imageUrl = await domToPng(element, {
   progress: (current, total) => {
-    console.log(`Processing: ${current}/${total} (${Math.round(current/total*100)}%)`)
+    console.log(`Processing: ${current}/${total} (${Math.round(current / total * 100)}%)`)
   }
 })
 ```
@@ -268,7 +268,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by the HTML2Image team**
+**Made with ❤️ by [@devxiyang](https://x.com/devxiyang)**
 
 [🌐 Official Website](https://html2image.pro) • [⭐ Star us on GitHub](https://github.com/devxiyang/html2image) • [🐛 Report Issues](https://github.com/devxiyang/html2image/issues) • [💬 Discussions](https://github.com/devxiyang/html2image/discussions)
 
@@ -278,7 +278,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-<sub>© 2024 HTML2Image. All rights reserved.</sub>  
+<sub>© 2024 HTML2Image. All rights reserved.</sub>
 <sub>Visit [html2image.pro](https://html2image.pro) for more information.</sub>
 
 </div>
